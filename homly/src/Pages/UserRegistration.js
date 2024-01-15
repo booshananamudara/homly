@@ -27,10 +27,13 @@ import wave from "../resources/images/wave.png";
 // import AvatarImage from "../Components/AvatarImage"
 
 const Img = styled("img")({
-  margin: "auto",
+  // margin: "auto",
   display: "block",
   width: "40%",
   height: "40%%",
+  padding: "5%",
+  filter: "drop-shadow(17px 18px 90px  #872341)",
+  // filter: "drop-shadow(17px 18px 90px -8px rgba(0,0,0,0.64))",
 });
 
 const UserRegistration = () => {
@@ -76,6 +79,7 @@ const UserRegistration = () => {
   };
 
   const checkContactNo = (contactNo) => {
+    // console.log(dbServiceNo === null? "not" : dbServiceNo[0].serviceNumber);
     return contactNo.length > 0 && !phoneRegex.test(contactNo);
   };
 
@@ -84,24 +88,21 @@ const UserRegistration = () => {
   };
 
   const checkServiceNo = (sn) => {
-    setDbServiceNo('1000');
-    let len = dbServiceNo === null? 0 : dbServiceNo.length;
+    setDbServiceNo("1000");
+    let len = dbServiceNo === null ? 0 : dbServiceNo.length;
     if (sn.length > 0 && len !== 0) {
       for (let i = 0; i < len; i++) {
-        if(dbServiceNo[i].SN === sn){
+        if (dbServiceNo[i].SN === sn) {
           setErrorServiceNumber(false);
-          console.log('1',errorServiceNumber);
-          return false
-        }else{
-
+          console.log("1", errorServiceNumber);
+          return false;
+        } else {
           setErrorServiceNumber(true);
-          console.log('1',errorServiceNumber);
-          
+          console.log("1", errorServiceNumber);
         }
       }
       return true;
     }
-    
   };
 
   // useEffect(() => {
@@ -114,34 +115,36 @@ const UserRegistration = () => {
   //     });
   // }, []);
 
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // console.log('2',ServiceNo,checkServiceNo(ServiceNo))
     // const formData = { ServiceNo, Email, ContactNo, Password, ConfirmPassword };
     // const product = JSON.stringify(formData);
-    
-    if(!checkServiceNo(ServiceNo) && !checkEmail(Email) && !checkContactNo(ContactNo) && !errorConfirmPassword){
-        console.log(ServiceNo, Email, ContactNo, Password, ConfirmPassword);
 
-        // fetch("http://localhost:8000/homlyDb", {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: product,
-        // }).then(() => {
-        //   console.log("new product added");
-        // });
+    if (
+      !checkServiceNo(ServiceNo) &&
+      !checkEmail(Email) &&
+      !checkContactNo(ContactNo) &&
+      !errorConfirmPassword
+    ) {
+      console.log(ServiceNo, Email, ContactNo, Password, ConfirmPassword);
 
-        setServiceNo("");
-        setEmail("");
-        setContactNo("");
-        setPassword("");
-        setConfirmPassword("");
-        
+      // fetch("http://localhost:8000/homlyDb", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: product,
+      // }).then(() => {
+      //   console.log("new product added");
+      // });
+
+      setServiceNo("");
+      setEmail("");
+      setContactNo("");
+      setPassword("");
+      setConfirmPassword("");
     }
-  }
+  };
 
   const handleReset = (e) => {
     e.preventDefault();
@@ -150,7 +153,7 @@ const UserRegistration = () => {
     setContactNo("");
     setPassword("");
     setConfirmPassword("");
-  }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -160,17 +163,23 @@ const UserRegistration = () => {
           sx={{
             height: "85%",
             backgroundColor: "grey1",
-            borderRadius: "5%",
-            boxShadow: 2,
+            borderRadius: "10px",
+            boxShadow: 1,
           }}
           className="registration-box"
         >
-          <Grid item className="registration-box-left" xs={12} sm={12} md={6}>
+          <Grid
+            item
+            className="registration-box-left mytest"
+            xs={12}
+            sm={12}
+            md={6}
+          >
             <Box>
               <Img src={logo} />
             </Box>
             <Box>
-              <img src={wave} className="registration-box-wave" alt="wave" />
+              <img src={wave} className="registration-box-wave " alt="wave" />
             </Box>
           </Grid>
           <Grid item className="registration-box-right" xs={12} sm={12} md={6}>
@@ -188,7 +197,12 @@ const UserRegistration = () => {
               <Button variant="outlined">Login</Button>
             </Box>
             <Box paddingLeft={"5%"} marginBottom={"5%"}>
-              <form action="" autoComplete="off" onSubmit={handleSubmit} onReset={handleReset}>
+              <form
+                action=""
+                autoComplete="off"
+                onSubmit={handleSubmit}
+                onReset={handleReset}
+              >
                 {/* <AvatarImage /> */}
                 <TextField
                   sx={{ marginBottom: " 6%", width: "90%" }}
@@ -212,10 +226,16 @@ const UserRegistration = () => {
                   }}
                   onFocus={() => setFocusedServiceNo(true)}
                   onBlur={() => setFocusedServiceNo(false)}
-                  onChange={(e) => {setServiceNo(e.target.value);}}
+                  onChange={(e) => {
+                    setServiceNo(e.target.value);
+                  }}
                   value={ServiceNo}
                   size="small"
-                  helperText={errorServiceNumber?"Your are not an employee of Homly":""}
+                  helperText={
+                    errorServiceNumber
+                      ? "Your are not an employee of Homly"
+                      : ""
+                  }
                   fullWidth
                 />
                 <TextField
