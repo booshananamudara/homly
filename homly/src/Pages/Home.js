@@ -1,5 +1,6 @@
 import React from "react";
 import NavigationBar from "../Components/NavigationBar";
+import MyReservationCard from "../Components/MyReservationCard/MyReservationCard";
 
 export default function Home() {
   return (
