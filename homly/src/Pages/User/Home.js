@@ -4,7 +4,7 @@ import {
   Box,
   Typography,
   ThemeProvider,
-  Stack,
+  Stack, Grid,
 } from "@mui/material";
 
 import NavBar from "../../Components/NavBar/NavBar";
@@ -50,13 +50,56 @@ export default function Home() {
                     alignItems: "center",
                   }}
                 >
-                  <Stack direction="column" sx={{color:'white',fontWeight:700}}>
-                    <Typography variant='h3' fontWeight={'bold'}>Discover the perfect getaway</Typography>
-                    <Typography variant='h3' fontWeight={'bold'}>with beautiful views</Typography>
+                  <Stack
+                    direction="column"
+                    sx={{ color: "white", fontWeight: 700 }}
+                  >
+                    <Typography
+                      sx={{
+                        fontWeight: "bold",
+                        fontSize: { xs: "1.7rem", sm: "3rem" },
+                      }}
+                    >
+                      Discover the perfect getaway
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontWeight: "bold",
+                        fontSize: { xs: "1.7rem", sm: "3rem" },
+                      }}
+                    >
+                      with beautiful views
+                    </Typography>
                   </Stack>
-                  <Typography variant="h4" color="initial">
-                    Search Bar
-                  </Typography>
+                  <Stack
+                    direction="column"
+                    sx={{ bgcolor: "white", width: "80%" }}
+                  >
+                    <Typography>Find</Typography>
+                    <Grid container sx={{bgcolor:'blueviolet',width:'100%'}}>
+                      <Grid item md={4}>
+                        <Stack direction='column'>
+                          <Typography>Location</Typography>
+                          <Typography>Location</Typography>
+                        </Stack>
+                      </Grid>
+                      <Grid item md={6}>
+                        <Stack direction='row'>
+                          <Stack direction='column'>
+                            <Typography>Location</Typography>
+                            <Typography>Location</Typography>
+                          </Stack>
+                          <Stack direction='column'>
+                            <Typography>Location</Typography>
+                            <Typography>Location</Typography>
+                          </Stack>
+                        </Stack>
+                      </Grid>
+                      <Grid item md={2}>
+                        <Typography>Search</Typography>
+                      </Grid>
+                    </Grid>
+                  </Stack>
                 </Stack>
                 <Box></Box>
                 <Typography variant="h4" color="initial">
