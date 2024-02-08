@@ -485,3 +485,10 @@
   max-height: 350px !important;
   overflow-y: scroll;
 }
+
+
+/* options */
+
+.select_editholidayhome option {
+  z-index: 10000 !important;
+}
