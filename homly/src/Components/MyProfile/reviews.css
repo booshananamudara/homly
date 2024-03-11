@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+.container{
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+section{
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center ;
+}
+h1{
+    font-size: 50px;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.facility-ratings {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px; /* Adjust spacing between rows */
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; /* Adjust spacing between columns */
+}
+
+.facility-rating {
+    margin-bottom: 10px; /* Adjust spacing between facility ratings */
+}
+
+.title {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    
+    max-width: calc(33.33% - 20px);
+    width: 100%;
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+    transition: .3s;
+    border: 2px solid transparent;
+    display: flex;
+    }
+
+    .card:hover{
+        border-color: #420a06;
+    }
+
+    .userinfo {
+        display: flex;
+        align-items: center;
+    }
+    
+    .userpic {
+        margin-right: 50px; /* Adjust as needed */
+    }
+    
+    /* .name1 {
+        font-weight: bold;
+        /* Add other styles as needed } */
+
+    .cardText {
+
+        display: flex grow 1;;
+        /* Define styles for the card text column */
+        /* For example, you can set flex-grow: 1; to make it fill the remaining space */
+    }
+    
+
+
+
+    
+    
+
+
+
+    /* .btn{
+        border: none;
+        outline: none;
+        background:#420a06;
+        color: #f5f5f5;
+        border-radius: 10px;
+        max-width: 120px;
+        width:100%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        margin-top: 20px;
+        cursor: pointer;
+        transform:  .3s;
+        border: 1px solid #420a06;
+    }
+
+    .btn:hover{
+        background: transparent;
+        color: #4e0b07;
+    } */
+
+
+    @media(max-width: 969px){
+        selection{
+            padding: 20px 0px;
+        }
+        h1{
+            font-size: 30px;
+            line-height: 40px;
+        }
+        .card{
+            flex: 0 0 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+
+        }
+    }
+
+    @media(max-width: 600px){
+        .card{
+            flex: 0 0 100%;
+            max-width: 100%
+            
+        }
+    } 
